@@ -154,16 +154,19 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void removeFromElement(Student student) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		 Student val;
+		 Student val;int i;
 			if(student == null)
 				throw new IllegalArgumentException();
-		   /* else{
-				int index = arr.get(student);
-				for(int i = index+1;i<arr.size();i++){
-					val = arr.get(i);
+		    else{
+				for(i=0;i<students.length;i++){
+				   if(students[i] == student)
+					   break;
+			   }
+				for(int k = 0;k<i;k++){
+					val = arr.get(k);
 					arr.remove(val);
 				}
-			}*/
+			}
 		
     }
 
@@ -187,16 +190,20 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void removeToElement(Student student) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		 Student val;
+		 Student val;int i;
 			if(student == null)
 				throw new IllegalArgumentException();
-		  /* else{
-			   int index = arr.get(student);
-				for(int i = 0;i<index;i++){
-					val = arr.get(i);
+		   else{
+			   
+			   for(i=0;i<students.length;i++){
+				   if(students[i] == student)
+					   break;
+			   }
+				for(int k = 0;k<i;k++){
+					val = arr.get(k);
 					arr.remove(val);
 				}
-		   }*/	
+		   }
 		
 	}
 
