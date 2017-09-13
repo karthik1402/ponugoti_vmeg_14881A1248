@@ -56,12 +56,11 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		
 		
 	}
-    ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 	@Override
 	public Student getStudent(int index) {
 		/* Add your implementation here*/
-		 
-		 int len = (this.arr).size();
+		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 int len = arr.size();
 		 try{
 			 if(index<0 || index>len)
 				 System.out.print();
@@ -69,24 +68,24 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	    catch(Exception e){
 			 throw IllegalArgumentException;
 		 }
-		 (this.arr).get(index);
-		return null;
+		 return arr.get(index);
+		
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
-		
-		if(index<0 || index>(this.arr).size()) || student == null)
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		if(index<0 || index>arr.size()) || student == null)
 			throw IllegalArgumentException;
-		return (this.arr).set(student,index);
+		return arr.set(student,index);
 		
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
-		//LinkedList<Student> ll = new LinkedList<Student>(Arrays.asList(students));
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
  		try{
 			if(student == null){
 				throw  new IllegalArgumentException();
@@ -95,71 +94,76 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		catch(Exception e){
 			System.out.println(e);
 		}
-		(this.arr).(0,student);
+		arr.add(0,student);
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
-		 
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students)); 
 		try{
 			if(student == null){
 				throw new IllegalArgumentException();
 		    }
 		}
-		(this.arr).add(student,arr.size());
+		arr.add(student,arr.size());
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		 Add your implementation here
-		int len = (this.arr).size();
+		 //Add your implementation here
+		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		int len = arr.size();
 		try{
 			if(index<0 || index> len || student == null){
 				throw new IllegalArgumentException();
 		    }
 		}
-		(this.arr).add(student,index);
+		arr.add(student,index);
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
-			if(index<0 || index>((this.arr).size())){
+			if(index<0 || index>(arr.size())){
 				throw new IllegalArgumentException();
 		    }
 		}
-		(this.arr).remove(index);
+		arr.remove(index);
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
-			if(((this.arr).contains(student)) == False || student = null){
+			if((arr.contains(student)) == False || student = null){
 				System.out.println("Student not Exist");
 				throw new IllegalArgumentException();
             }		
 		}
-		(this.arr).remove(student);
+		arr.remove(student);
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		//Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
 			if(index<0 || index>((this.arr).size())){
 				throw new IllegalArgumentException();
 		    }
 		}
-		(this.arr).remove(index+1,(arr.size()));
+		arr.remove(index+1,(arr.size()));
 		
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
 			if(student == null){
 				throw new IllegalArgumentException();
@@ -167,30 +171,32 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		}
 		
 		int val = (this.arr).get(student);
-		(this.arr).remove(val+1, (arr.size()));
+		arr.remove(val+1, (arr.size()));
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
 			if(index<0 || index>((this.arr).size())){
 				throw new IllegalArgumentException();
 		    }
 		}
-		(this.arr).remove(0,index-1);
+		arr.remove(0,index-1);
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
 			if(student == null){
 				throw new IllegalArgumentException();
 		    }
 		}
-		int val = (this.arr).get(student);
-		(this.arr).remove(0,val-1);
+		int val = arr.get(student);
+		arr.remove(0,val-1);
 	}
 
 	@Override
