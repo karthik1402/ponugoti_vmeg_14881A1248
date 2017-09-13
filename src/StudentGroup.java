@@ -115,11 +115,13 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void remove(int index) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 Student val;
 		if(index<0 || index>=(arr.size()))
 				throw new IllegalArgumentException();
-		/*else{
-			arr.remove(index);
-		}*/
+		else{
+			val = arr.remove(index);
+			arr.remove(val);
+		}
 		
 	}
 
@@ -129,51 +131,55 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		 if((arr.contains(student)) == false || student == null)
 				throw new IllegalArgumentException();
-		/*else{
+		 else
 			arr.remove(student);
-		}*/
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		//Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		
+		 Student val;
 			if(index<0 || index>(arr.size()))
 				throw new IllegalArgumentException();
-		    /*else{
-				arr.removeRange(index+1,(arr.size()));
-		    }*/
+		    else{
+				for(int i=index+1;i<arr.size();i++){
+					val = arr.get(i);
+					arr.remove(val);
+				}
+		    }
 		}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		
+		 Student val;
 			if(student == null)
 				throw new IllegalArgumentException();
 		   /* else{
-				int val = arr.get(student);
-				arr.removeRange(val+1, (arr.size()));
-				
+				int index = arr.get(student);
+				for(int i = index+1;i<arr.size();i++){
+					val = arr.get(i);
+					arr.remove(val);
+				}
 			}*/
 		
-		
-		
-	}
+    }
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		
+		Student val;
 			if(index<0 || index>(arr.size()))
 				throw new IllegalArgumentException();
-		    
-		/*else{
-			arr.removeRange(0,index-1);
-		}*/
+		    else{
+				for(int i=0;i<index;i++){
+					val = arr.get(i);
+					arr.remove(val);
+				}
+		}
 		
 	}
 
@@ -181,14 +187,16 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void removeToElement(Student student) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		
+		 Student val;
 			if(student == null)
 				throw new IllegalArgumentException();
-		   /* else{
-				int val = arr.get(student);
-				arr.removeRange(0,val-1);
-			}*/
-		
+		  /* else{
+			   int index = arr.get(student);
+				for(int i = 0;i<index;i++){
+					val = arr.get(i);
+					arr.remove(val);
+				}
+		   }*/	
 		
 	}
 
