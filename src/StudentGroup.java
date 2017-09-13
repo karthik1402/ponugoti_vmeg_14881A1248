@@ -42,19 +42,12 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void setStudents(Student[] students) {
 		// Add your implementation here
 		
-		/*int length = students.length;
+		int length = students.length;
 		try{
-			if(length == '\0'){
-			 throw new IllegalArgumentException();
+			if(students == null)
+				throw new IllegalArgumentException();
 		   }
-		}
-		catch(Exception e){
-			System.out.println(e);
-		}
-		
-			this.students = students;
-		*/
-		
+		this.students = students;
 	}
 	@Override
 	public Student getStudent(int index) {
@@ -62,12 +55,10 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		 int len = arr.size();
 		 try{
-			 if(index<0 || index>len)
-				 System.out.print();
+			 if(index<0 || index>=len)
+				 throw new IllegalArgumentException();
 	    }
-	    catch(Exception e){
-			 throw IllegalArgumentException;
-		 }
+		
 		 return arr.get(index);
 		
 	}
@@ -76,8 +67,8 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		if(index<0 || index>arr.size()) || student == null)
-			throw IllegalArgumentException;
+		if(index<0 || index>=arr.size() || student == null)
+			throw new IllegalArgumentException();
 		return arr.set(student,index);
 		
 	}
@@ -87,12 +78,8 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
  		try{
-			if(student == null){
+			if(student == null)
 				throw  new IllegalArgumentException();
-		    }
-		}
-		catch(Exception e){
-			System.out.println(e);
 		}
 		arr.add(0,student);
 	}
@@ -102,9 +89,8 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students)); 
 		try{
-			if(student == null){
+			if(student == null)
 				throw new IllegalArgumentException();
-		    }
 		}
 		arr.add(student,arr.size());
 	}
@@ -115,7 +101,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		int len = arr.size();
 		try{
-			if(index<0 || index> len || student == null){
+			if(index<0 || index>=len || student == null){
 				throw new IllegalArgumentException();
 		    }
 		}
@@ -127,9 +113,8 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
 		try{
-			if(index<0 || index>(arr.size())){
+			if(index<0 || index>=(arr.size()))
 				throw new IllegalArgumentException();
-		    }
 		}
 		arr.remove(index);
 	}
