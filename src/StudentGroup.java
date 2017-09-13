@@ -30,7 +30,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
-		return null;
+		return this.students;
 	}
 
 	@Override
@@ -47,27 +47,27 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public Student getStudent(int index) {
 		/* Add your implementation here*/
 		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		 int len = arr.size(),val;
+		 int len = arr.size();
+		 Student val;
 		 
 			 if(index<0 || index>=len)
 				 throw new IllegalArgumentException();
-			/* else{
-				  val = arr.get(index);
-			 }*/
-		return null;
+			 else{
+				   val = arr.get(index);
+			 }
+		return val;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
-		 int val;
+		 Student val;
 		if(index<0 || index>=arr.size() || student == null)
 			throw new IllegalArgumentException();
-		/*else{
+		else{
 			 val = arr.set(index,student);
 		}
-		return val;*/
 		
 	}
 
