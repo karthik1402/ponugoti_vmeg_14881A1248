@@ -122,8 +122,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 			val = arr.remove(index);
 			arr.remove(val);
 		}
-		Student[] stu = new Student[arr.size()];
-		stu = arr.toArray(stu);
+		
 		
 	}
 
@@ -142,8 +141,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 			  val = arr.get(i);
 			  arr.remove(val);
 	    }
-		Student[] stu = new Student[arr.size()];
-		stu = arr.toArray(stu);
+		
 	}
 
 	@Override
@@ -159,8 +157,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 					arr.remove(val);
 				}
 		    }
-			Student[] stu = new Student[arr.size()];
-		stu = arr.toArray(stu);
+			
 		}
 
 	@Override
@@ -180,8 +177,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 					arr.remove(val);
 				}
 			}
-			Student[] stu = new Student[arr.size()];
-		stu = arr.toArray(stu);
+			
 		
     }
 
@@ -198,8 +194,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 					arr.remove(val);
 				}
 		}
-		Student[] stu = new Student[arr.size()];
-		stu = arr.toArray(stu);
+		
 		
 	}
 
