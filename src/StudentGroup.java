@@ -42,7 +42,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void setStudents(Student[] students) {
 		// Add your implementation here
 		
-		int length = students.length;
+		/*int length = students.length;
 		try{
 			if(length == '\0'){
 			 throw new IllegalArgumentException();
@@ -53,7 +53,7 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 		}
 		
 			this.students = students;
-		
+		*/
 		
 	}
 	@Override
