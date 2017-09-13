@@ -129,10 +129,17 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	public void remove(Student student) {
 		// Add your implementation here
 		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 Student val;int i;
 		 if((arr.contains(student)) == false || student == null)
 				throw new IllegalArgumentException();
-		 else
-			arr.remove(student);
+		 else{
+			  for(i=0;i<students.length;i++){
+				   if(students[i] == student)
+					   break;
+			  }
+			  val = arr.get(i);
+			  arr.remove(val);
+	    }
 	}
 
 	@Override
@@ -261,7 +268,20 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+		double max = 0;int i;
+		for(i=0;i<students.length;i++){
+			if(max<students[i].getAvgMark())
+				max = students[i].getAvgMark();
+		}
+		LinkedList<Student> ll = new LinkedList<Student>();
+		for(i=0;i<students.length;i++){
+			if(max == students[i].getAvgMark()){
+				ll.add(students[i]);
+			}
+		}
+		Student[] stu = new Student[ll.size()];
+		stu = ll.toArray(stu);
+		return stu;
 	}
 
 	@Override
