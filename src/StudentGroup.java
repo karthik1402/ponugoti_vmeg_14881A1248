@@ -294,10 +294,19 @@ public class StudentGroup extends Exception implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
-		
-			if(student == null)
+		int i;
+		Student val;
+		ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		if(student == null)
 				throw new IllegalArgumentException();
+		else{
+			for(i=0;i<students.length;i++){
+				if(students[i] == student)
+					break;
+			}
+		 val = arr.get(i+1);
+		}
 		
-		return null;
+		return val;
 	}
 }
