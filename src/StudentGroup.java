@@ -1,4 +1,5 @@
-import java.util.Date;
+import java.util.*;
+
 
 /**
  * A fix-sized array of students
@@ -11,9 +12,12 @@ import java.util.Date;
  * DO NOT PUT any classes into packages
  *
  */
-public class StudentGroup implements StudentArrayOperation {
+public class StudentGroup extends Exception implements StudentArrayOperation {
 
 	private Student[] students;
+	
+	
+	
 	
 	/**
 	 * DO NOT remove or change this constructor, it will be used during task check
@@ -22,7 +26,7 @@ public class StudentGroup implements StudentArrayOperation {
 	public StudentGroup(int length) {
 		this.students = new Student[length];
 	}
-
+    
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
@@ -32,90 +36,204 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
+		
+		int length = students.length;
+		if(students == null)
+				throw new IllegalArgumentException();
+		   
+		this.students = students;
 	}
-
 	@Override
 	public Student getStudent(int index) {
-		// Add your implementation here
+		/* Add your implementation here*/
+		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 int len = arr.size(),val;
+		 
+			 if(index<0 || index>=len)
+				 throw new IllegalArgumentException();
+			/* else{
+				  val = arr.get(index);
+			 }*/
 		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 int val;
+		if(index<0 || index>=arr.size() || student == null)
+			throw new IllegalArgumentException();
+		/*else{
+			 val = arr.set(index,student);
+		}
+		return val;*/
+		
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+ 		
+			if(student == null)
+				throw  new IllegalArgumentException();
+			else{
+				arr.add(0,student);
+			}
+		
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students)); 
+	
+			if(student == null)
+				throw new IllegalArgumentException();
+			else{
+				arr.add(student);
+			}
+		
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		 //Add your implementation here
+		  ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		int len = arr.size();
+	
+			if(index<0 || index>=len || student == null)
+				throw new IllegalArgumentException();
+		    else{
+				arr.add(index,student);
+			}
+		
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		if(index<0 || index>=(arr.size()))
+				throw new IllegalArgumentException();
+		/*else{
+			arr.remove(index);
+		}*/
+		
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		 if((arr.contains(student)) == false || student == null)
+				throw new IllegalArgumentException();
+		/*else{
+			arr.remove(student);
+		}*/
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
-		// Add your implementation here
-	}
+		//Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		
+			if(index<0 || index>(arr.size()))
+				throw new IllegalArgumentException();
+		    /*else{
+				arr.removeRange(index+1,(arr.size()));
+		    }*/
+		}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		
+			if(student == null)
+				throw new IllegalArgumentException();
+		   /* else{
+				int val = arr.get(student);
+				arr.removeRange(val+1, (arr.size()));
+				
+			}*/
+		
+		
+		
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		
+			if(index<0 || index>(arr.size()))
+				throw new IllegalArgumentException();
+		    
+		/*else{
+			arr.removeRange(0,index-1);
+		}*/
+		
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		 ArrayList<Student> arr = new ArrayList<Student>(Arrays.asList(students));
+		
+			if(student == null)
+				throw new IllegalArgumentException();
+		   /* else{
+				int val = arr.get(student);
+				arr.removeRange(0,val-1);
+			}*/
+		
+		
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
-		// Add your implementation here
+		
+			if(date == null)
+				throw new IllegalArgumentException();
+		
 		return null;
 	}
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
+		
+			if(firstDate == null || lastDate == null)
+				throw new IllegalArgumentException();
+		
 		return null;
 	}
 
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
+		
+			if(date == null)
+				throw new IllegalArgumentException();
+		
 		return null;
 	}
 
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
+		
+			if(indexOfStudent == 0)
+				throw new IllegalArgumentException();
+		
 		return 0;
 	}
 
@@ -134,6 +252,10 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
+		
+			if(student == null)
+				throw new IllegalArgumentException();
+		
 		return null;
 	}
 }
